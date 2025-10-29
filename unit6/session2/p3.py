@@ -19,22 +19,25 @@ def shuffle_playlist(playlist):
 
     # Split the playlist into two halves. slow is mid
     slow = fast = playlist
-    prev = None
+    # prev = None
     while fast and fast.next:
         slow = slow.next
         fast = fast.next.next
         if slow == fast:          # If they meet, there's a cycle
-            return True
+            return None
 
     # Reverse 2nd half
-    curr = slow
+    curr = slow  # mid -> new start
     prev = None
+    reversed = Node(curr.value)
     while curr:
         temp = curr.next
+        # temp.next = reversed
         curr.next = prev
         prev = curr
         curr = temp
-        slow = temp
+        # slow = temp
+        curr = curr.next
     
     # Merge two halves
     first = playlist
