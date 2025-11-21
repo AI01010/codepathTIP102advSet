@@ -88,6 +88,7 @@ def zigzag_icing_order(cupcakes):
             else:
                 for item in temp_lst[::-1]:
                     lst.append(item)
+            zigzagBool = not zigzagBool
 
 
     return lst
